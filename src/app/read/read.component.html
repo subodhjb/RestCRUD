@@ -1,0 +1,32 @@
+<div class="container mt-3">
+  <p>All User Data..!</p>
+
+  <div *ngIf="successMsg"  class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{successMsg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of readUser" >
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td><button class="btn btn-warning" [routerLink]="['/create',(user.id)]">edit</button></td>
+          <td><button class="btn btn-danger" (click)="DeleteData(user.id)" >Delete</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+</div>
